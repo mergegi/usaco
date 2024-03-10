@@ -1,3 +1,9 @@
+"""
+ID: mfchen12
+LANG: PYTHON2
+TASK: ride
+"""
+
 with open("ride.in", "r") as fIn, open("ride.out","w") as fOut:
     lines = fIn.readlines()
 
