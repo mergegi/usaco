@@ -8,4 +8,5 @@ fout = open ('test.out', 'w')
 x,y = map(int, fin.readline().split())
 sum = x+y
 fout.write (str(sum) + '\n')
+fin.close()
 fout.close() 
