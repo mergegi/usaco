@@ -3,6 +3,12 @@ ID: mfchen12
 LANG: PYTHON2
 TASK: ride
 """
+def encode(name):
+    code = 1
+    for c in name:
+        code *= (ord(c)- 64)
+    code = code % 47
+    return code
 
 with open("ride.in", "r") as fIn, open("ride.out","w") as fOut:
     lines = fIn.readlines()
@@ -10,18 +16,9 @@ with open("ride.in", "r") as fIn, open("ride.out","w") as fOut:
     cometName =  lines[0].strip()
     groupName =  lines[1].strip()
 
-    cometCode = 1
-    for c in cometName:
-            cometCode = cometCode * (ord(c)- 64)
+    cometCode = encode(cometName)
 
-    cometCode = cometCode % 47
-
-
-    groupCode = 1
-    for c in groupName: 
-            groupCode = groupCode * (ord(c)- 64)
-    
-    groupCode = groupCode % 47
+    groupCode=  encode(groupName)
 
     if cometCode == groupCode:
         fOut.write("GO\n")
