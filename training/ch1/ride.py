@@ -1,6 +1,6 @@
 """
 ID: mfchen12
-LANG: PYTHON2
+LANG: PYTHON3
 TASK: ride
 """
 def encode(name):

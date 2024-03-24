@@ -1,6 +1,6 @@
 """
 ID: mfchen12
-LANG: PYTHON2
+LANG: PYTHON3
 TASK: test
 """
 fin = open ('test.in', 'r')
