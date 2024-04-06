@@ -14,12 +14,11 @@ with open("gift1.in", "r") as fIn:
     lines = fIn.read().splitlines()
 
 np = int(lines[0])
-people = {}
+people = {} 
 
 for i in range(1, np+1):
     name = lines[i]
     people[name] = 0 
-
 
 curLine = np + 1
 while curLine < len(lines):
@@ -38,8 +37,10 @@ while curLine < len(lines):
         receiver = lines[curLine]
         people[receiver] += getGivingforEachPerson(money, peopleNum)
         curLine += 1
-
-print(people)
+        
+with open("gift1.out", "w") as fOut:
+    for key in (people):
+        fOut.write(key +' '+ str(people[key])+'\n')
     
 
 
