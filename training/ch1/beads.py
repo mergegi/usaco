@@ -19,45 +19,34 @@ def findCutPoints():
             cutPoints.append(i)
     return cutPoints
 
+def collectBeads(cp, fromLeft):
+    if fromLeft:
+        ra = range(cp, 0, -1)
+    else: 
+        ra = range(cp + 1, len(beads), 1)
+    wCount = 0
+    rCount = 0 
+    bCount = 0
+    for i in ra:
+        if beads[i] == 'w':
+            wCount += 1
+        elif beads[i] == 'r':
+            if bCount > 0:
+                break
+            else:
+                rCount += 1
+        elif beads[i] == 'b':
+            if rCount > 0:
+                break
+            else: 
+                bCount += 1
+    return wCount + rCount + bCount
 
 def collectLeft(cp):
-    wCount = 0
-    rCount = 0 
-    bCount = 0
-    for i in range(cp, 0, -1):
-        if beads[i] == 'w':
-            wCount += 1
-        elif beads[i] == 'r':
-            if bCount > 0:
-                break
-            else:
-                rCount += 1
-        elif beads[i] == 'b':
-            if rCount > 0:
-                break
-            else: 
-                bCount += 1
-    return wCount + rCount + bCount
+    return collectBeads(cp, True)
 
 def collectRight(cp):
-    wCount = 0
-    rCount = 0 
-    bCount = 0
-    collectedCount = 0
-    for i in range(cp + 1, len(beads), 1):
-        if beads[i] == 'w':
-            wCount += 1
-        elif beads[i] == 'r':
-            if bCount > 0:
-                break
-            else:
-                rCount += 1
-        elif beads[i] == 'b':
-            if rCount > 0:
-                break
-            else: 
-                bCount += 1
-    return wCount + rCount + bCount
+    return collectBeads(cp, False)
 
 # find out all cutting point
 cutPoints = findCutPoints()
