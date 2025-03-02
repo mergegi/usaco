@@ -14,9 +14,25 @@ def chain_round(n, d):
         ten *= 10
     return n
 
+def solve(strN):
+    N = int(strN)
+    digitNum = len(strN)
+    ret = 0
+    for i in range(2, digitNum + 1):
+        upper = int('5' + '0' * (i-1))
+        upper = min(upper, N + 1)
+        lower = int('4' * (i - 1) + '5')
+        if upper > lower:
+            ret += (upper - lower)
+        else:
+            continue
+    return ret
+
 T = int(input().strip())
 
-for i in range(T): 
+for i in range(T):
+    strN = input().strip()
+    """
     N = int(input().strip())
     v = 0 
     for i in range(2, N + 1):
@@ -27,3 +43,6 @@ for i in range(T):
         if round(i, ten) != chain_round(i, ten):
             v += 1
     print(v)
+    """ 
+
+    print(solve(strN))
